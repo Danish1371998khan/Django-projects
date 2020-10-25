@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+
+{% block main %}
+
+<div class="container-fluid">
+    <div class="p-4 m-4">
+        <div class="col-lg-4 mx-auto border rounded pt-4 pb-4 ">
+
+            <h3 class="alert alert-light border rounded " align='center'>Signup Form</h3>
+            {% if error %}
+            <div class="alert alert-danger" role="alert" align='center' style="color: red; font-size: larger;">
+                {{error}}
+            </div>
+            {% endif %}
+
+            <form action="signup" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <small>First name</small>
+                    <input type="text" value="{{first_name}}" class="form-control form-control-sm" id="f_name"
+                           name="first_name">
+                </div>
+                <div class="form-group">
+                    <small>Last name</small>
+                    <input type="text" value="{{last_name}}" class="form-control form-control-sm" id="l_name"
+                           name="last_name">
+                </div>
+                <div class="form-group">
+                    <small>Email address</small>
+                    <input type="email" value="{{email}}" name="email" class="form-control form-control-sm" required
+                           placeholder="example@gmail.com">
+                </div>
+                <div class="form-group">
+                    <small>Phone</small>
+                    <input type="text" value="{{phone_no}}" name="phone_no" class="form-control form-control-sm"
+                           id="phn_no" placeholder="7123456789">
+                </div>
+                <div class="form-group">
+                    <small>Password</small>
+                    <input type="password" name="password1" class="form-control form-control-sm" id="phone_number"
+                           placeholder="6-20 character password">
+                </div>
+                <div class="form-group">
+                    <small>Password</small>
+                    <input type="password" name="password2" class="form-control form-control-sm" id="phone_number"
+                           placeholder="confirm your password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
